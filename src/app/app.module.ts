@@ -7,10 +7,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { JokesComponent } from './jokes/jokes.component';
 import { FavoritesComponent } from './favorites/favorites.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { AlertModule } from './shared/alert/alert.module';
 
 @NgModule({
     declarations: [AppComponent, JokesComponent, FavoritesComponent, NotFoundComponent],
-    imports: [BrowserModule, AuthModule, AppRoutingModule],
+    imports: [BrowserModule, AuthModule, AppRoutingModule, AlertModule],
     providers: [],
     bootstrap: [AppComponent],
 })

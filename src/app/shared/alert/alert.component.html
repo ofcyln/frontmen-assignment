@@ -1,0 +1,14 @@
+<div class="d-flex flex-column-reverse">
+    <div
+        *ngFor="let alert of alerts"
+        class="{{ cssClass(alert) }} alert-dismissable no-margin margin-bottom-sm row justify-content-md-start align-items-center">
+        <div
+            class="col align-center">
+            {{alert.message}}
+        </div>
+
+        <a
+            class="close transition-100ms"
+            (click)="removeAlert(alert)">&times;</a>
+    </div>
+</div>

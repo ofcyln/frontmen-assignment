@@ -1,0 +1,33 @@
+:host {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99999;
+    max-height: 90px;
+    overflow: hidden;
+    overflow-y: auto;
+    .alert {
+        padding: 7px 15px;
+        margin-bottom: 20px;
+        border-radius: 0;
+        font-size: 14px;
+    }
+    .alert-danger {
+        color: #ffffff;
+        background-color: #bf616a;
+        border-color: #bf616a;
+    }
+    .alert-success {
+        color: #fff;
+        background-color: #42af5c;
+        border-color: #42af5c;
+    }
+    .close {
+        opacity: 0.6;
+        cursor: pointer;
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
