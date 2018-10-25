@@ -1,3 +1,73 @@
-<p>
-  login works!
-</p>
+<form
+    class="row login-area"
+    #f="ngForm"
+    (ngSubmit)="f.form.valid && login()"
+    novalidate>
+
+    <div class="login-section col-12">
+        <div class="row">
+            <h1
+                class="chuck-icon-norris mb-0 col-12"
+                aria-label="Chuck Norris Jokes"
+                title="Chuck Norris Jokes"></h1>
+
+            <h4 class="pb-1 col-12">SIGN IN</h4>
+
+            <p class="pb-3 col-12">Please enter your sign in information.</p>
+        </div>
+
+        <div class="col-12 p-0">
+            <div
+                class="group"
+                [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+                <input
+                    class="email-area"
+                    name="username"
+                    type="text"
+                    [(ngModel)]="model.username"
+                    #username="ngModel"
+                    required/>
+
+                <div
+                    *ngIf="f.submitted && !username.valid"
+                    class="help-block">Username is required!
+                </div>
+
+                <span class="bar"></span>
+
+                <label>Username (E-Mail)</label>
+            </div>
+
+            <div
+                class="group"
+                [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+                <input
+                    class="password-area"
+                    name="password"
+                    type="password"
+                    [(ngModel)]="model.password"
+                    #password="ngModel"
+                    required/>
+
+                <div
+                    *ngIf="f.submitted && !password.valid"
+                    class="help-block">Password is required!
+                </div>
+
+                <span class="bar"></span>
+
+                <label>Password</label>
+            </div>
+        </div>
+
+        <div class="row align-content-end pt-3">
+            <div class="col-12">
+                <button
+                    class="btn w-100 btn-success pt-1 pb-1 login-button send-button"
+                    [ngClass]="{ 'sending': animationActive }"
+                    type="submit"
+                    [disabled]="loading">Sign In</button>
+            </div>
+        </div>
+    </div>
+</form>

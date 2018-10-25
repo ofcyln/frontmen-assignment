@@ -1,12 +1,42 @@
 import { Injectable, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+
+import { tap } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
+import { StorageService } from '../shared/storage.service';
+import { LoginResponse } from '../shared/shared-interfaces.model';
 
 @Injectable()
 export class AuthService implements OnInit {
     public isAuthenticated: boolean;
 
-    constructor() {}
+    constructor(
+        private http: HttpClient,
+        public router: Router,
+        private storageService: StorageService,
+    ) {}
 
-    ngOnInit() {
-        this.isAuthenticated = false;
+    ngOnInit() {}
+
+    login(username: string, password: string) {
+        let body = new FormData();
+
+        body.append('username', username);
+        body.append('password', password);
+
+        return this.http.post<LoginResponse>(`${environment.baseAPIUrl}/login`, body).pipe(
+            tap((user) => {
+                if (user && user.token) {
+                    localStorage.setItem('currentUser', JSON.stringify(user));
+                }
+            }),
+        );
+    }
+
+    logout() {
+        this.storageService.removeObject('currentUser');
+
+        this.router.navigate(['login']);
     }
 }
