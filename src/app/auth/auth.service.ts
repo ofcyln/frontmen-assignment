@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 
 import { tap } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
-import { StorageService } from '../shared/storage.service';
-import { LoginResponse } from '../shared/shared-interfaces.model';
+import { StorageService } from '../shared/service/storage.service';
+import { LoginResponse } from '../shared/interface/shared-interfaces.model';
 
 @Injectable()
 export class AuthService implements OnInit {

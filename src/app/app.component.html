@@ -1,8 +1,14 @@
 <section class="container-fluid font-open-sans-light">
-    <app-alert></app-alert>
+    <article class="row">
+        <div class="col no-padding">
+            <app-header></app-header>
+        </div>
+    </article>
 
     <article class="row">
         <div class="col no-padding">
+            <app-alert></app-alert>
+
             <router-outlet></router-outlet>
         </div>
     </article>

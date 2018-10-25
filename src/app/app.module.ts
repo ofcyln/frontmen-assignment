@@ -7,12 +7,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { JokesComponent } from './jokes/jokes.component';
 import { FavoritesComponent } from './favorites/favorites.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { AlertModule } from './shared/alert/alert.module';
-import { StorageService } from './shared/storage.service';
+import { AlertModule } from './core/alert/alert.module';
+import { StorageService } from './shared/service/storage.service';
 import { HttpClientModule } from '@angular/common/http';
+import { HeaderComponent } from './core/header/header.component';
 
 @NgModule({
-    declarations: [AppComponent, JokesComponent, FavoritesComponent, NotFoundComponent],
+    declarations: [
+        AppComponent,
+        JokesComponent,
+        FavoritesComponent,
+        NotFoundComponent,
+        HeaderComponent,
+    ],
     imports: [BrowserModule, HttpClientModule, AuthModule, AppRoutingModule, AlertModule],
     providers: [StorageService],
     bootstrap: [AppComponent],

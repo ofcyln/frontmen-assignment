@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { AuthService } from '../auth.service';
-import { AlertService } from '../../shared/alert/alert.service';
-import { LoginResponse } from '../../shared/shared-interfaces.model';
+import { AlertService } from '../../core/alert/alert.service';
+import { LoginResponse } from '../../shared/interface/shared-interfaces.model';
 
 @Component({
     selector: 'app-login',

@@ -1,0 +1,18 @@
+.navbar {
+    box-shadow: 0 0 11px -4px #333;
+    .navbar-brand {
+        p {
+            font-size: 18px;
+        }
+    }
+    .navbar-nav {
+        .nav-item {
+            &.active {
+                .nav-link {
+                    font-weight: 600;
+                    color: #28a745;
+                }
+            }
+        }
+    }
+}
