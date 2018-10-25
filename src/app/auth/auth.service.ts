@@ -28,14 +28,14 @@ export class AuthService implements OnInit {
         return this.http.post<LoginResponse>(`${environment.baseAPIUrl}/login`, body).pipe(
             tap((user) => {
                 if (user && user.token) {
-                    localStorage.setItem('currentUser', JSON.stringify(user));
+                    localStorage.setItem('token', JSON.stringify(user.token));
                 }
             }),
         );
     }
 
     logout() {
-        this.storageService.removeObject('currentUser');
+        this.storageService.removeObject('token');
 
         this.router.navigate(['login']);
     }

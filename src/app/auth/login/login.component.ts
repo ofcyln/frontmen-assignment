@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { AuthService } from '../auth.service';
 import { AlertService } from '../../shared/alert/alert.service';
+import { LoginResponse } from '../../shared/shared-interfaces.model';
 
 @Component({
     selector: 'app-login',
@@ -34,11 +35,11 @@ export class LoginComponent implements OnInit {
         this.animationActive = !this.animationActive;
 
         this.authenticationService.login(this.model.username, this.model.password).subscribe(
-            (response) => {
+            (response: LoginResponse) => {
                 this.router.navigate([this.returnUrl]);
             },
-            (error) => {
-                this.alertService.error(error.error.code);
+            (err: string) => {
+                this.alertService.error(err);
 
                 this.loading = false;
                 this.animationActive = false;
