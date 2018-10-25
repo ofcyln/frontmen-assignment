@@ -1,0 +1,87 @@
+.quote-card {
+    background-color: #fff;
+    color: #222222;
+    padding: 20px 50px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 4px rgba(34, 34, 34, 0.12);
+    position: relative;
+    overflow: hidden;
+    min-height: 105px;
+    margin-bottom: 30px;
+    &:nth-child(odd) {
+        background-color: #f8f9fa;
+    }
+    &:before, &:after {
+        content: "“";
+        position: absolute;
+        color: rgba(212, 212, 212, 0.5);
+        font-weight: normal;
+    }
+    &:before {
+        top: 10px;
+        left: 10px;
+        font-size: 34px;
+    }
+    &:after {
+        bottom: -70px;
+        line-height: 1;
+        right: 10px;
+        font-size: 150px;
+    }
+    p {
+        font-size: 22px;
+        line-height: 1.5;
+        margin: 0;
+    }
+    .favorite-button {
+        position: absolute;
+        top: 0;
+        right: 5px;
+        font-size: 24px;
+        height: 37px;
+        width: 37px;
+        text-align: center;
+        opacity: 0.5;
+        display: block;
+        z-index: 1;
+        cursor: pointer;
+        -webkit-transition: opacity 0.1s ease-in-out;
+        -moz-transition: opacity 0.1s ease-in-out;
+        -ms-transition: opacity 0.1s ease-in-out;
+        -o-transition: opacity 0.1s ease-in-out;
+        transition: opacity 0.1s ease-in-out;
+        color: #e47777;
+        &:after {
+            display: none;
+            content: attr(aria-label);
+            position: absolute;
+            margin-top: 4px;
+            top: 3px;
+            right: calc(100% + 47px);
+            z-index: 1;
+            padding: 5px 10px;
+            background-color: rgba(111, 111, 111, 0.65);
+            box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.35);
+            color: #fff;
+            font-size: 10px;
+            white-space: nowrap;
+            pointer-events: none;
+            -webkit-transform: translateX(50%);
+            transform: translateX(50%);
+        }
+        &:hover {
+            &:before {
+                content: '\e802';
+                color: #222222;
+            }
+            &:after {
+                display: block;
+            }
+        }
+    }
+    &:hover {
+        .favorite-button {
+            opacity: 1;
+        }
+    }
+}
