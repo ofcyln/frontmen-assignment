@@ -4,8 +4,6 @@ import { map } from 'rxjs/operators';
 import { JokesService } from '../shared/service/jokes.service';
 import { Joke, JokesResponse } from '../shared/interface/jokes-interface.model';
 import { AlertService } from '../core/alert/alert.service';
-import { HttpUrlEncodingCodec } from '@angular/common/http';
-import { decode } from 'punycode';
 
 @Component({
     selector: 'app-jokes',
