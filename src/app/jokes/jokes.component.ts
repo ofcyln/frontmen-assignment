@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { map } from 'rxjs/operators';
+
+import { JokesService } from '../shared/service/jokes.service';
+import { Joke, JokesResponse } from '../shared/interface/jokes-interface.model';
+import { AlertService } from '../core/alert/alert.service';
+import { HttpUrlEncodingCodec } from '@angular/common/http';
+import { decode } from 'punycode';
 
 @Component({
     selector: 'app-jokes',
@@ -6,7 +13,45 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./jokes.component.scss'],
 })
 export class JokesComponent implements OnInit {
-    constructor() {}
+    public jokes: Joke[];
 
-    ngOnInit() {}
+    private readonly MAX_JOKE_COUNT: number = 10;
+
+    constructor(private jokesService: JokesService, private alertService: AlertService) {}
+
+    ngOnInit() {
+        this.initJokes(this.MAX_JOKE_COUNT);
+    }
+
+    public initJokes(amount: number): void {
+        this.jokesService
+            .getJoke(amount)
+            .pipe(
+                map((jokes: JokesResponse) => {
+                    return jokes.value;
+                }),
+            )
+            .subscribe(
+                (jokes: Joke[]) => {
+                    this.jokes = jokes.map((joke: Joke) => {
+                        return {
+                            id: joke.id,
+                            joke: this.replaceTextNode(joke.joke, /&quot;/g, "'"),
+                            category: joke.category,
+                        };
+                    });
+                },
+                (error) => {
+                    this.alertService.error(`Error: ${error}`);
+                },
+            );
+    }
+
+    public replaceTextNode(
+        textNode: string,
+        searchValue: string | RegExp,
+        replaceValue: string,
+    ): string {
+        return textNode.replace(searchValue, replaceValue);
+    }
 }

@@ -10,11 +10,12 @@ import { FavoritesComponent } from './favorites/favorites.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { StorageService } from './shared/service/storage.service';
 import { CoreModule } from './core/core.module';
+import { JokesService } from './shared/service/jokes.service';
 
 @NgModule({
     declarations: [AppComponent, JokesComponent, FavoritesComponent, NotFoundComponent],
     imports: [BrowserModule, HttpClientModule, AuthModule, CoreModule, AppRoutingModule],
-    providers: [StorageService],
+    providers: [StorageService, JokesService],
     bootstrap: [AppComponent],
 })
 export class AppModule {}

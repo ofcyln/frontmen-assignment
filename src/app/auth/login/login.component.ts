@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { AuthService } from '../auth.service';
 import { AlertService } from '../../core/alert/alert.service';
-import { LoginResponse } from '../../shared/interface/shared-interfaces.model';
+import { LoginResponse } from '../../shared/interface/user-interface.model';
 
 @Component({
     selector: 'app-login',

@@ -2,13 +2,16 @@
     class="mb-4 section-heading"
     aria-label="JOKES SECTION">JOKES</h1>
 
-<blockquote class="quote-card">
+<blockquote
+    class="quote-card"
+    *ngFor="let joke of jokes; let i = index;">
     <a
         class="favorite-button chuck-icon-heart-empty"
         aria-label="Add to favorites"></a>
 
-    <p aria-label="It is said that looking into Chuck Norris' eyes will reveal your future. Unfortunately, everybody's future is always the same: death by a roundhouse-kick to the face.">
-        It is said that looking into Chuck Norris' eyes will reveal your future. Unfortunately, everybody's future is always the same: death by a roundhouse-kick to the face.
+    <p
+        id="{{ joke.id + '-' + i }}">
+        {{ joke.joke }}
     </p>
 </blockquote>
 

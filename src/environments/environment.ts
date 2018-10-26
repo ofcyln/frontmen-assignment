@@ -5,6 +5,7 @@
 export const environment = {
     production: false,
     baseAPIUrl: '../assets/api',
+    jokesAPIUrl: 'http://api.icndb.com/jokes/random',
 };
 
 /*
