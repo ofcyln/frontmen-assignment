@@ -1,10 +1,8 @@
 .joke-filler-switch {
-    width: 60px;
-    position: relative;
-    top: 3px;
+    width: auto;
     input[type="checkbox"] {
         position: relative;
-        width: 100%;
+        width: 60px;
         -webkit-appearance: none;
         height: 30px;
         background: #efefef;
@@ -29,6 +27,21 @@
             &:before {
                 left: 30px;
             }
+            & ~ label {
+                color: #222;
+            }
         }
+    }
+    label {
+        color: #999;
+        margin-bottom: 0;
+        margin-left: 0.5em;
+        position: relative;
+        top: -9px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        cursor: pointer;
     }
 }
