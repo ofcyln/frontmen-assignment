@@ -17,3 +17,14 @@
 .font-roboto-regular {
     font-family: 'Roboto - Regular', Helvetica, Arial;
 }
+
+.loading-bar-fixed > div {
+    &#loading-bar-spinner, .bar {
+        position: absolute !important;
+        color: #00aa34 !important;
+    }
+    .bar {
+        position: absolute !important;
+        background: #00aa34 !important;
+    }
+}
