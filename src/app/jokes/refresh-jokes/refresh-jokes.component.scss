@@ -1,0 +1,14 @@
+:host {
+    .chuck-icon-refresh {
+        padding: 0.25rem 0.5rem;
+        background: #efefef;
+        outline: none;
+        border: 0;
+        &:hover {
+            background: #dcdcdc;
+        }
+        &:active {
+            background: #efefef;
+        }
+    }
+}

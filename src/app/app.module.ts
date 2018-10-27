@@ -14,6 +14,7 @@ import { JokesRequestService } from './shared/service/jokes-request.service';
 import { FillSwitchComponent } from './favorites/fill-switch/fill-switch.component';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { LoadingBarHttpModule } from '@ngx-loading-bar/http';
+import { RefreshJokesComponent } from './jokes/refresh-jokes/refresh-jokes.component';
 
 @NgModule({
     declarations: [
@@ -22,6 +23,7 @@ import { LoadingBarHttpModule } from '@ngx-loading-bar/http';
         FavoritesComponent,
         FillSwitchComponent,
         NotFoundComponent,
+        RefreshJokesComponent,
     ],
     imports: [
         BrowserModule,
