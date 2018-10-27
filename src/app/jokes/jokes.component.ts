@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
 
-import { JokesService } from '../shared/service/jokes.service';
+import { JokesRequestService } from '../shared/service/jokes-request.service';
 import { Joke, JokesResponse } from '../shared/interface/jokes-interface.model';
 import { AlertService } from '../core/alert/alert.service';
 
@@ -15,7 +15,7 @@ export class JokesComponent implements OnInit {
 
     private readonly MAX_JOKE_COUNT: number = 10;
 
-    constructor(private jokesService: JokesService, private alertService: AlertService) {}
+    constructor(private jokesService: JokesRequestService, private alertService: AlertService) {}
 
     ngOnInit() {
         this.initJokes(this.MAX_JOKE_COUNT);

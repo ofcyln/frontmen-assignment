@@ -6,7 +6,7 @@ import { JokesResponse } from '../interface/jokes-interface.model';
 import { Observable } from 'rxjs';
 
 @Injectable()
-export class JokesService {
+export class JokesRequestService {
     constructor(public http: HttpClient) {}
 
     public getJoke(amount: number): Observable<JokesResponse> {

@@ -10,7 +10,7 @@ import { FavoritesComponent } from './favorites/favorites.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { StorageService } from './shared/service/storage.service';
 import { CoreModule } from './core/core.module';
-import { JokesService } from './shared/service/jokes.service';
+import { JokesRequestService } from './shared/service/jokes-request.service';
 import { FillSwitchComponent } from './favorites/fill-switch/fill-switch.component';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { LoadingBarHttpModule } from '@ngx-loading-bar/http';
@@ -32,7 +32,7 @@ import { LoadingBarHttpModule } from '@ngx-loading-bar/http';
         CoreModule,
         AppRoutingModule,
     ],
-    providers: [StorageService, JokesService],
+    providers: [StorageService, JokesRequestService],
     bootstrap: [AppComponent],
 })
 export class AppModule {}
