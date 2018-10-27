@@ -35,11 +35,9 @@ export class JokesComponent implements OnInit {
         );
     }
 
-    addToFavorites(joke: JokeExtended): void {
+    addJokeToFavorites(joke: JokeExtended): void {
         this.jokesService.favoritedJokes.push(joke);
 
         joke.active = !joke.active;
-
-        console.log(this.jokesService.favoritedJokes);
     }
 }

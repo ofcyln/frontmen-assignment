@@ -14,7 +14,7 @@
         class="favorite-button chuck-icon-heart-empty"
         aria-label="Add to favorites"
         [ngClass]="{ 'selected' : joke.active }"
-        (click)="addToFavorites(joke)"></a>
+        (click)="addJokeToFavorites(joke)"></a>
 
     <p id="{{ joke.id + '-' + i }}">
         {{ joke.joke }}
