@@ -49,6 +49,12 @@
       "css": "key",
       "code": 59395,
       "src": "elusive"
+    },
+    {
+      "uid": "d5fabfa46384953ae055fceacb2229a7",
+      "css": "refresh",
+      "code": 59396,
+      "src": "elusive"
     }
   ]
 }
