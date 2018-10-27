@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class JokesService {
     public jokes: Joke[];
-    public favoritedJokes: Joke[] = [];
+    public favoredJokes: Joke[] = [];
 
     public animateFavoritesRouteLink: boolean;
 

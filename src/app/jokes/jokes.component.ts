@@ -15,6 +15,7 @@ export interface JokeExtended extends Joke {
 })
 export class JokesComponent implements OnInit {
     private readonly MAX_JOKE_COUNT: number = 10;
+    private readonly EMTPY_JOKES_ARRAY_COUNT: number = 0;
 
     constructor(public jokesService: JokesService, private alertService: AlertService) {}
 
@@ -36,11 +37,33 @@ export class JokesComponent implements OnInit {
     }
 
     addJokeToFavorites(joke: JokeExtended): void {
-        this.animateFavoriteRouteLink();
+        if (this.jokesService.favoredJokes.includes(joke)) {
+            // when favoredJokes array has the joke same as clicked joke, remove it from favoredJokes
+            this.jokesService.favoredJokes = this.jokesService.favoredJokes.filter(
+                (favoredJoke) => favoredJoke.id !== joke.id,
+            );
 
-        this.jokesService.favoritedJokes.push(joke);
+            joke.active = !joke.active;
+
+            return;
+        }
+
+        if (!this.jokesService.favoredJokes.includes(joke)) {
+            // when favoredJokes array doesn't have the joke same as clicked joke
+            if (this.jokesService.favoredJokes.length >= this.MAX_JOKE_COUNT) {
+                this.alertService.error(
+                    'Favorite jokes reached maximum number of 10. Please remove some to add new ones!',
+                );
+
+                return;
+            }
+
+            this.jokesService.favoredJokes.push(joke);
+        }
 
         joke.active = !joke.active;
+
+        this.animateFavoriteRouteLink();
     }
 
     animateFavoriteRouteLink() {
