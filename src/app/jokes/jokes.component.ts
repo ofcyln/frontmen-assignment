@@ -15,7 +15,6 @@ export interface JokeExtended extends Joke {
 })
 export class JokesComponent implements OnInit {
     private readonly MAX_JOKE_COUNT: number = 10;
-    private readonly EMTPY_JOKES_ARRAY_COUNT: number = 0;
 
     constructor(public jokesService: JokesService, private alertService: AlertService) {}
 

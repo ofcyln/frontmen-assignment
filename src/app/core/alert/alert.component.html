@@ -3,12 +3,12 @@
         *ngFor="let alert of alerts"
         class="{{ cssClass(alert) }} alert-dismissable row justify-content-md-start align-items-center">
         <div
-            class="col align-center">
+            class="col align-center alert-text-area">
             {{alert.message}}
         </div>
 
         <a
-            class="close transition-100ms"
+            class="close"
             (click)="removeAlert(alert)">&times;</a>
     </div>
 </div>
