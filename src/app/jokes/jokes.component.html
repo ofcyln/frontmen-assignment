@@ -12,10 +12,11 @@
     tabindex="{{ i + 1 }}">
     <a
         class="favorite-button chuck-icon-heart-empty"
-        aria-label="Add to favorites"></a>
+        aria-label="Add to favorites"
+        [ngClass]="{ 'selected' : joke.active }"
+        (click)="addToFavorites(joke)"></a>
 
-    <p
-        id="{{ joke.id + '-' + i }}">
+    <p id="{{ joke.id + '-' + i }}">
         {{ joke.joke }}
     </p>
 </blockquote>

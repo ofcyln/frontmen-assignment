@@ -9,6 +9,8 @@ import { Observable } from 'rxjs';
 export class JokesService {
     public jokes: Joke[];
 
+    public favoritedJokes: Joke[] = [];
+
     constructor(private jokesRequestService: JokesRequestService) {}
 
     public initJokes(amount: number): Observable<Joke[]> {

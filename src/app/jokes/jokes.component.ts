@@ -4,6 +4,10 @@ import { JokesService } from '../shared/service/jokes.service';
 import { Joke } from '../shared/interface/jokes-interface.model';
 import { AlertService } from '../core/alert/alert.service';
 
+export interface JokeExtended extends Joke {
+    active?: boolean;
+}
+
 @Component({
     selector: 'app-jokes',
     templateUrl: './jokes.component.html',
@@ -29,5 +33,13 @@ export class JokesComponent implements OnInit {
                 this.alertService.error(`Error: ${error}`);
             },
         );
+    }
+
+    addToFavorites(joke: JokeExtended): void {
+        this.jokesService.favoritedJokes.push(joke);
+
+        joke.active = !joke.active;
+
+        console.log(this.jokesService.favoritedJokes);
     }
 }

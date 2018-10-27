@@ -77,6 +77,13 @@
                 display: block;
             }
         }
+
+        &.selected{
+            &:before {
+                content: '\e801';
+                color: #e47777;
+            }
+        }
     }
     &:hover {
         .favorite-button {
