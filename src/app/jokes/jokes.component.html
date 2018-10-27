@@ -4,7 +4,8 @@
 
 <blockquote
     class="quote-card"
-    *ngFor="let joke of jokes; let i = index;">
+    *ngFor="let joke of jokes; let i = index;"
+    tabindex="{{ i + 1 }}">
     <a
         class="favorite-button chuck-icon-heart-empty"
         aria-label="Add to favorites"></a>
