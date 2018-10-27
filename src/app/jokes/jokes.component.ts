@@ -36,8 +36,17 @@ export class JokesComponent implements OnInit {
     }
 
     addJokeToFavorites(joke: JokeExtended): void {
+        this.animateFavoriteRouteLink();
+
         this.jokesService.favoritedJokes.push(joke);
 
         joke.active = !joke.active;
+    }
+
+    animateFavoriteRouteLink() {
+        this.jokesService.animateFavoritesRouteLink = true;
+        setTimeout(() => {
+            this.jokesService.animateFavoritesRouteLink = false;
+        }, 500);
     }
 }

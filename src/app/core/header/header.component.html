@@ -25,7 +25,8 @@
                 <a
                     class="nav-link cursor-pointer"
                     routerLink="favorites"
-                    aria-label="FAVORITES">FAVORITES</a>
+                    aria-label="FAVORITES"
+                    [ngClass]="jokesService.animateFavoritesRouteLink ? 'bounceIn' : ''">FAVORITES</a>
             </li>
         </ul>
     </div>
