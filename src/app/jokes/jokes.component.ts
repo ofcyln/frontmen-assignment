@@ -37,7 +37,6 @@ export class JokesComponent implements OnInit {
 
     addJokeToFavorites(joke: JokeExtended): void {
         if (this.jokesService.favoredJokes.includes(joke)) {
-            // when favoredJokes array has the joke same as clicked joke, remove it from favoredJokes
             this.jokesService.favoredJokes = this.jokesService.favoredJokes.filter(
                 (favoredJoke) => favoredJoke.id !== joke.id,
             );
@@ -48,7 +47,6 @@ export class JokesComponent implements OnInit {
         }
 
         if (!this.jokesService.favoredJokes.includes(joke)) {
-            // when favoredJokes array doesn't have the joke same as clicked joke
             if (this.jokesService.favoredJokes.length >= this.MAX_JOKE_COUNT) {
                 this.alertService.error(
                     'Favorite jokes reached maximum number of 10. Please remove some to add new ones!',
@@ -65,7 +63,7 @@ export class JokesComponent implements OnInit {
         this.animateFavoriteRouteLink();
     }
 
-    animateFavoriteRouteLink() {
+    animateFavoriteRouteLink(): void {
         this.jokesService.animateFavoritesRouteLink = true;
         setTimeout(() => {
             this.jokesService.animateFavoritesRouteLink = false;

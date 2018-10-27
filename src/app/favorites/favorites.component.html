@@ -12,7 +12,8 @@
     tabindex="{{ i + 1 }}">
     <a
         class="favorite-button chuck-icon-heart"
-        aria-label="Remove from favorites"></a>
+        aria-label="Remove from favorites"
+        (click)="removeFavoredJoke(joke)"></a>
 
     <p id="{{ joke.id + '-' + i }}">
         {{ joke.joke }}
