@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { JokesService } from '../shared/service/jokes.service';
 import { Joke } from '../shared/interface/jokes-interface.model';
@@ -18,7 +19,11 @@ export class JokesComponent implements OnInit {
     private readonly QUOT_TEXT = /&quot;/g;
     private readonly QUOTATION_MARK = "'";
 
-    constructor(public jokesService: JokesService, private alertService: AlertService) {}
+    constructor(
+        public jokesService: JokesService,
+        private alertService: AlertService,
+        private router: Router,
+    ) {}
 
     ngOnInit() {
         this.jokesService.getJokes(this.MAX_JOKE_COUNT).subscribe(
@@ -56,6 +61,8 @@ export class JokesComponent implements OnInit {
 
         if (!this.jokesService.favoredJokes.includes(joke)) {
             if (this.jokesService.favoredJokes.length >= this.MAX_JOKE_COUNT) {
+                this.router.navigate(['favorites']);
+
                 this.alertService.error(
                     'Favorite jokes reached maximum number of 10. Please remove some to add new ones!',
                 );
