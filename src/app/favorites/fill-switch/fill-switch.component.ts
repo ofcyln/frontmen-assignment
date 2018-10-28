@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+
 import { JokesService } from '../../shared/service/jokes.service';
 import { Joke } from '../../shared/interface/jokes-interface.model';
 import { AlertService } from '../../core/alert/alert.service';

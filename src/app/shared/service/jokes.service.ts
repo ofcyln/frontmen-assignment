@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { map, tap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { Joke, JokesResponse } from '../interface/jokes-interface.model';
 import { JokesRequestService } from './jokes-request.service';
 import { Observable } from 'rxjs';
