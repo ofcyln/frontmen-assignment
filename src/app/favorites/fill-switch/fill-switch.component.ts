@@ -12,7 +12,7 @@ import { interval, Subscription } from 'rxjs';
     encapsulation: ViewEncapsulation.None,
 })
 export class FillSwitchComponent implements OnInit {
-    public subscription: Subscription;
+    private subscription: Subscription;
 
     private readonly FIRST_ITEM = 0;
     private readonly JOKE_COUNT = 1;
