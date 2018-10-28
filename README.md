@@ -4,6 +4,13 @@ Frontmen Assignment - Chuck Norris jokes app assignment solution authored by Osm
 
 ## Usage
 
+### Using the project on live environment
+The final app hosted on `Google Firebase` server with the `live environment`.
+ 
+Live demo:  https://frontmen-chuck-norris-jokes.firebaseapp.com/
+
+To see website in action please `activate unsafe scripts` from the `address bar` -it gives warning because the API serves from HTTP protocol
+
 ### Using the project with Stackblitz
 
 Simply go to this URL: [https://stackblitz.com/github/ofcyln/frontmen-assignment](https://stackblitz.com/github/ofcyln/frontmen-assignment)

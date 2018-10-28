@@ -21,7 +21,7 @@ export class FillSwitchComponent implements OnInit {
     private readonly QUOT_TEXT = /&quot;/g;
     private readonly QUOTATION_MARK = "'";
 
-    constructor(private jokesService: JokesService, private alertService: AlertService) {}
+    constructor(public jokesService: JokesService, private alertService: AlertService) {}
 
     ngOnInit() {}
 
