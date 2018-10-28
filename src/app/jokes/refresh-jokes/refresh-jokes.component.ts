@@ -17,7 +17,7 @@ export class RefreshJokesComponent implements OnInit {
     ngOnInit() {}
 
     refreshJokes() {
-        this.jokesService.initJokes(this.MAX_JOKE_COUNT).subscribe(
+        this.jokesService.getJokes(this.MAX_JOKE_COUNT).subscribe(
             (jokes: Joke[]) => {
                 this.jokesService.jokes = jokes.map((joke: Joke) => {
                     return {

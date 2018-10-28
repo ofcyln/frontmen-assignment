@@ -19,7 +19,7 @@ export class JokesComponent implements OnInit {
     constructor(public jokesService: JokesService, private alertService: AlertService) {}
 
     ngOnInit() {
-        this.jokesService.initJokes(this.MAX_JOKE_COUNT).subscribe(
+        this.jokesService.getJokes(this.MAX_JOKE_COUNT).subscribe(
             (jokes: Joke[]) => {
                 this.jokesService.jokes = jokes.map((joke: Joke) => {
                     return {

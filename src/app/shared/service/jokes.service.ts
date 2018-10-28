@@ -16,15 +16,7 @@ export class JokesService {
 
     constructor(private jokesRequestService: JokesRequestService) {}
 
-    public initJokes(amount: number): Observable<Joke[]> {
-        return this.jokesRequestService.getJoke(amount).pipe(
-            map((jokes: JokesResponse) => {
-                return jokes.value;
-            }),
-        );
-    }
-
-    public getOneJoke(amount: number): Observable<Joke[]> {
+    public getJokes(amount: number): Observable<Joke[]> {
         return this.jokesRequestService.getJoke(amount).pipe(
             map((jokes: JokesResponse) => {
                 return jokes.value;
