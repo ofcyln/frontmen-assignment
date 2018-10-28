@@ -12,6 +12,8 @@ export class JokesService {
 
     public animateFavoritesRouteLink: boolean;
 
+    public isFillSwitchActive: boolean = false;
+
     constructor(private jokesRequestService: JokesRequestService) {}
 
     public initJokes(amount: number): Observable<Joke[]> {

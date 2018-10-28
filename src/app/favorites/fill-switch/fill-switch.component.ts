@@ -11,8 +11,6 @@ import { AlertService } from '../../core/alert/alert.service';
     encapsulation: ViewEncapsulation.None,
 })
 export class FillSwitchComponent implements OnInit {
-    public isFillSwitchActive: boolean = false;
-
     private readonly FIRST_ITEM = 0;
     private readonly JOKE_COUNT = 1;
     private readonly MAX_JOKE_COUNT = 10;
@@ -20,11 +18,7 @@ export class FillSwitchComponent implements OnInit {
 
     constructor(private jokesService: JokesService, private alertService: AlertService) {}
 
-    ngOnInit() {
-        if (this.isFillSwitchActive) {
-            console.log('isFillSwitchActive', this.isFillSwitchActive);
-        }
-    }
+    ngOnInit() {}
 
     getJoke() {
         this.jokesService.getOneJoke(this.JOKE_COUNT).subscribe(
@@ -46,13 +40,13 @@ export class FillSwitchComponent implements OnInit {
     }
 
     fillSwitchToggle() {
-        this.isFillSwitchActive = !this.isFillSwitchActive;
+        this.jokesService.isFillSwitchActive = !this.jokesService.isFillSwitchActive;
 
-        if (this.isFillSwitchActive) {
+        if (this.jokesService.isFillSwitchActive) {
             setInterval(() => {
                 if (
                     this.jokesService.favoredJokes.length >= this.MAX_JOKE_COUNT ||
-                    !this.isFillSwitchActive
+                    !this.jokesService.isFillSwitchActive
                 ) {
                     clearInterval();
                     return;

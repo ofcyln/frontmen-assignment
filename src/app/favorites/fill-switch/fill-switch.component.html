@@ -2,7 +2,7 @@
     <input
         type="checkbox"
         id="fillSwitch"
-        [checked]="isFillSwitchActive"
+        [checked]="jokesService.isFillSwitchActive"
         (change)="fillSwitchToggle($event)">
 
     <label for="fillSwitch">Fill favorites with jokes</label>
