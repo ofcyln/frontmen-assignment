@@ -11,6 +11,8 @@ import { AlertService } from '../../core/alert/alert.service';
 })
 export class RefreshJokesComponent implements OnInit {
     private readonly MAX_JOKE_COUNT: number = 10;
+    private readonly QUOT_TEXT = /&quot;/g;
+    private readonly QUOTATION_MARK = "'";
 
     constructor(private jokesService: JokesService, private alertService: AlertService) {}
 
@@ -22,7 +24,11 @@ export class RefreshJokesComponent implements OnInit {
                 this.jokesService.jokes = jokes.map((joke: Joke) => {
                     return {
                         id: joke.id,
-                        joke: this.jokesService.replaceTextNode(joke.joke, /&quot;/g, "'"),
+                        joke: this.jokesService.replaceTextNode(
+                            joke.joke,
+                            this.QUOT_TEXT,
+                            this.QUOTATION_MARK,
+                        ),
                         category: joke.category,
                     };
                 });

@@ -18,6 +18,8 @@ export class FillSwitchComponent implements OnInit {
     private readonly JOKE_COUNT = 1;
     private readonly MAX_JOKE_COUNT = 10;
     private readonly FIVE_SECONDS_TIMER = 5000;
+    private readonly QUOT_TEXT = /&quot;/g;
+    private readonly QUOTATION_MARK = "'";
 
     constructor(private jokesService: JokesService, private alertService: AlertService) {}
 
@@ -29,12 +31,18 @@ export class FillSwitchComponent implements OnInit {
                 const oneJoke = jokes.map((joke: Joke) => {
                     return {
                         id: joke.id,
-                        joke: this.jokesService.replaceTextNode(joke.joke, /&quot;/g, "'"),
+                        joke: this.jokesService.replaceTextNode(
+                            joke.joke,
+                            this.QUOT_TEXT,
+                            this.QUOTATION_MARK,
+                        ),
                         category: joke.category,
                     };
                 })[this.FIRST_ITEM];
 
                 this.jokesService.favoredJokes.push(oneJoke);
+
+                this.jokesService.setFavoredJokesToStorage();
             },
             (error) => {
                 this.alertService.error(`Error: ${error}`);

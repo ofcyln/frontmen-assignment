@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators';
 import { Joke, JokesResponse } from '../interface/jokes-interface.model';
 import { JokesRequestService } from './jokes-request.service';
 import { Observable } from 'rxjs';
+import { StorageService } from './storage.service';
 
 @Injectable()
 export class JokesService {
@@ -14,7 +15,10 @@ export class JokesService {
 
     public isFillSwitchActive: boolean = false;
 
-    constructor(private jokesRequestService: JokesRequestService) {}
+    constructor(
+        private jokesRequestService: JokesRequestService,
+        private storageService: StorageService,
+    ) {}
 
     public getJokes(amount: number): Observable<Joke[]> {
         return this.jokesRequestService.getJoke(amount).pipe(
@@ -30,5 +34,9 @@ export class JokesService {
         replaceValue: string,
     ): string {
         return textNode.replace(searchValue, replaceValue);
+    }
+
+    setFavoredJokesToStorage() {
+        this.storageService.setObject('favoredJokes', [...this.favoredJokes]);
     }
 }

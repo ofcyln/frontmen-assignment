@@ -15,6 +15,8 @@ export interface JokeExtended extends Joke {
 })
 export class JokesComponent implements OnInit {
     private readonly MAX_JOKE_COUNT: number = 10;
+    private readonly QUOT_TEXT = /&quot;/g;
+    private readonly QUOTATION_MARK = "'";
 
     constructor(public jokesService: JokesService, private alertService: AlertService) {}
 
@@ -24,7 +26,11 @@ export class JokesComponent implements OnInit {
                 this.jokesService.jokes = jokes.map((joke: Joke) => {
                     return {
                         id: joke.id,
-                        joke: this.jokesService.replaceTextNode(joke.joke, /&quot;/g, "'"),
+                        joke: this.jokesService.replaceTextNode(
+                            joke.joke,
+                            this.QUOT_TEXT,
+                            this.QUOTATION_MARK,
+                        ),
                         category: joke.category,
                     };
                 });
@@ -43,6 +49,8 @@ export class JokesComponent implements OnInit {
 
             joke.active = !joke.active;
 
+            this.jokesService.setFavoredJokesToStorage();
+
             return;
         }
 
@@ -56,6 +64,8 @@ export class JokesComponent implements OnInit {
             }
 
             this.jokesService.favoredJokes.push(joke);
+
+            this.jokesService.setFavoredJokesToStorage();
         }
 
         joke.active = !joke.active;
@@ -65,6 +75,7 @@ export class JokesComponent implements OnInit {
 
     animateFavoriteRouteLink(): void {
         this.jokesService.animateFavoritesRouteLink = true;
+
         setTimeout(() => {
             this.jokesService.animateFavoritesRouteLink = false;
         }, 500);

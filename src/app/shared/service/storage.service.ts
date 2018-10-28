@@ -40,31 +40,4 @@ export class StorageService {
     public removeItem(key: string) {
         localStorage.removeItem(key);
     }
-
-    public getKeysByFilter(filterFn: Function) {
-        const storageKeys = Object.keys(localStorage);
-        return storageKeys.filter((key) => filterFn(key));
-    }
-
-    public clearLocalStorage() {
-        const storageKeys = Object.keys(localStorage);
-
-        storageKeys.forEach((key: string) => {
-            this.removeItem(key);
-        });
-    }
-
-    public removeSessionItem(key: string) {
-        sessionStorage.removeItem(key);
-    }
-
-    public setSessionItem(key: string, data: string): string {
-        sessionStorage.setItem(key, data);
-        return data;
-    }
-
-    public getSessionItem(key: string): string {
-        const data = sessionStorage.getItem(key);
-        return data;
-    }
 }

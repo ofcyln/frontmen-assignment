@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { JokesService } from '../shared/service/jokes.service';
 import { Joke } from '../shared/interface/jokes-interface.model';
+import { StorageService } from '../shared/service/storage.service';
 
 @Component({
     selector: 'app-favorites',
@@ -9,13 +10,18 @@ import { Joke } from '../shared/interface/jokes-interface.model';
     styleUrls: ['./favorites.component.scss'],
 })
 export class FavoritesComponent implements OnInit {
-    constructor(public jokesService: JokesService) {}
+    constructor(public jokesService: JokesService, public storageService: StorageService) {}
 
-    ngOnInit() {}
+    ngOnInit() {
+        this.jokesService.favoredJokes =
+            <Joke[]>JSON.parse(this.storageService.getItem('favoredJokes')) || [];
+    }
 
     removeFavoredJoke(joke: Joke) {
         this.jokesService.favoredJokes = this.jokesService.favoredJokes.filter(
             (favoredJoke) => favoredJoke.id !== joke.id,
         );
+
+        this.jokesService.setFavoredJokesToStorage();
     }
 }
