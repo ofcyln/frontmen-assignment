@@ -48,15 +48,16 @@ export class FillSwitchComponent implements OnInit {
         if (this.jokesService.isFillSwitchActive) {
             this.subscription = interval(this.FIVE_SECONDS_TIMER).subscribe(
                 () => {
-                    if (
-                        this.jokesService.favoredJokes.length >= this.MAX_JOKE_COUNT ||
-                        !this.jokesService.isFillSwitchActive
-                    ) {
-                        this.alertService.success(
+                    if (this.jokesService.favoredJokes.length >= this.MAX_JOKE_COUNT) {
+                        this.alertService.error(
                             'Favored jokes amount reached to the maximum ' +
                                 'allowed number of 10. Fill switch deactivated!',
                         );
 
+                        this.jokesService.isFillSwitchActive = false;
+
+                        this.subscription.unsubscribe();
+                    } else if (!this.jokesService.isFillSwitchActive) {
                         this.jokesService.isFillSwitchActive = false;
 
                         this.subscription.unsubscribe();
