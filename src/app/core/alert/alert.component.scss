@@ -6,6 +6,9 @@
     z-index: 99999;
     overflow: hidden;
     overflow-y: auto;
+    &.top-position {
+        top: 0;
+    }
     .alert-text-area {
         font-size: 15px;
     }

@@ -1,14 +1,16 @@
 <section class="container-fluid font-open-sans-light">
     <article class="row">
         <div class="col no-padding">
-            <app-header></app-header>
+            <app-header *ngIf="authService.isAuthenticated()"></app-header>
 
             <ngx-loading-bar></ngx-loading-bar>
         </div>
     </article>
 
-    <article class="row app-content">
-        <app-alert></app-alert>
+    <article
+        class="row app-content"
+        [ngClass]="authService.isAuthenticated() ? 'regular-height' : 'full-height'">
+        <app-alert [ngClass]="authService.isAuthenticated() ? 'regular-position' : 'top-position'"></app-alert>
 
         <main class="col no-padding">
             <router-outlet></router-outlet>

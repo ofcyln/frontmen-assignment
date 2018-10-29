@@ -12,7 +12,7 @@
     tabindex="{{ i + 1 }}">
     <a
         class="favorite-button chuck-icon-heart-empty"
-        aria-label="Add to favorites"
+        [title]="joke.active ? 'Remove from favorites' : 'Add to Favorites'"
         [ngClass]="{ 'selected' : joke.active }"
         (click)="addJokeToFavorites(joke)"></a>
 

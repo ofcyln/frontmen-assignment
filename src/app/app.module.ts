@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
@@ -16,6 +16,8 @@ import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { LoadingBarHttpModule } from '@ngx-loading-bar/http';
 import { RefreshJokesComponent } from './jokes/refresh-jokes/refresh-jokes.component';
 import { JokesService } from './shared/service/jokes.service';
+import { JwtInterceptor } from './shared/service/interceptor/jwt.interceptor';
+import { MockBackendServerInterceptor } from './shared/service/interceptor/mock-backend-server.interceptor';
 
 @NgModule({
     declarations: [
@@ -35,7 +37,13 @@ import { JokesService } from './shared/service/jokes.service';
         CoreModule,
         AppRoutingModule,
     ],
-    providers: [StorageService, JokesRequestService, JokesService],
+    providers: [
+        StorageService,
+        JokesRequestService,
+        JokesService,
+        { provide: HTTP_INTERCEPTORS, useClass: MockBackendServerInterceptor, multi: true },
+        { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    ],
     bootstrap: [AppComponent],
 })
 export class AppModule {}

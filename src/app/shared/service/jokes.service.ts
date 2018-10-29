@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { map } from 'rxjs/operators';
-import { Joke, JokesResponse } from '../interface/jokes-interface.model';
+import { Joke, JokesResponse } from '../interface/joke.model';
 import { JokesRequestService } from './jokes-request.service';
 import { Observable } from 'rxjs';
 import { StorageService } from './storage.service';

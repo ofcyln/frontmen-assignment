@@ -6,25 +6,22 @@ import { Injectable } from '@angular/core';
 export class StorageService {
     constructor() {
         if (typeof Storage === 'undefined') {
-            throw 'StorageService: Local storage is not supported';
+            throw new Error('StorageService: Local storage is not supported');
         }
     }
 
     public setObject(key: string, data: Object) {
-        if (data != null) {
-            localStorage.setItem(key, JSON.stringify(data));
-        } else {
-            localStorage.removeItem(key);
+        try {
+            const serializedData = JSON.stringify(data);
+            localStorage.setItem(key, serializedData);
+        } catch (e) {
+            throw new Error('Provided data is not serializable!');
         }
     }
 
     public getObject(key: string): Object {
         const item = localStorage.getItem(key);
         return item && JSON.parse(item);
-    }
-
-    public removeObject(key: string) {
-        this.removeItem(key);
     }
 
     public setItem(key: string, data: string): string {

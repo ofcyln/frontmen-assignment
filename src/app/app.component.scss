@@ -3,6 +3,10 @@
         height: calc(100vh - 56px);
         overflow-y: auto;
         position: relative;
+        background-color: #f7f7f7;
+        &.full-height {
+            height: calc(100vh - 1px);
+        }
     }
     main {
         max-width: 900px;

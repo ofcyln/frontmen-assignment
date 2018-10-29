@@ -1,7 +1,7 @@
 <form
     class="row login-area"
     #f="ngForm"
-    (ngSubmit)="f.form.valid && login()"
+    (ngSubmit)="f.form.valid && onSubmit()"
     novalidate>
 
     <div class="login-section col-12">
@@ -49,6 +49,7 @@
                     [(ngModel)]="model.password"
                     #password="ngModel"
                     required
+                    [maxlength]="32"
                     tabindex="2"/>
 
                 <div

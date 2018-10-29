@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { JokesService } from '../../shared/service/jokes.service';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
     selector: 'app-header',
@@ -7,7 +9,7 @@ import { JokesService } from '../../shared/service/jokes.service';
     styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-    constructor(public jokesService: JokesService) {}
+    constructor(public jokesService: JokesService, public authService: AuthService) {}
 
     ngOnInit() {}
 }

@@ -13,36 +13,36 @@ export interface User {
     status: string;
     createdAt: string;
     updatedAt: string;
-    Roles: Roles[];
-    Branches: Branches[];
+    Roles: Role[];
+    Branches: Branch[];
 }
 
-export interface Roles {
+export interface Role {
     id: number;
     name: string;
     isAdmin: boolean;
     createdAt: string;
     updatedAt: string;
-    UserRoles: UserRoles;
+    UserRoles: UserRole;
 }
 
-export interface UserRoles {
+export interface UserRole {
     RoleId: number;
     UserId: number;
     createdAt: string;
     updatedAt: string;
 }
 
-export interface Branches {
+export interface Branch {
     id: number;
     name: string;
     city: string;
     createdAt: string;
     updatedAt: string;
-    UserBranches: UserBranches;
+    UserBranches: UserBranch;
 }
 
-export interface UserBranches {
+export interface UserBranch {
     BranchId: number;
     UserId: number;
     createdAt: string;

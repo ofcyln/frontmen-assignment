@@ -3,7 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { AuthService } from '../auth.service';
 import { AlertService } from '../../core/alert/alert.service';
-import { LoginResponse } from '../../shared/interface/user-interface.model';
+import { LoginResponse } from '../../shared/interface/user.model';
+import { StorageService } from '../../shared/service/storage.service';
 
 @Component({
     selector: 'app-login',
@@ -11,7 +12,6 @@ import { LoginResponse } from '../../shared/interface/user-interface.model';
     styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-    public username: string;
     public model: any = {};
     public loading = false;
     public returnUrl: string;
@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/jokes';
     }
 
-    login() {
+    onSubmit() {
         this.loading = true;
         this.animationActive = !this.animationActive;
 

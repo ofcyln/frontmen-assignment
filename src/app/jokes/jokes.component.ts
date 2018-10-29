@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { JokesService } from '../shared/service/jokes.service';
-import { Joke } from '../shared/interface/jokes-interface.model';
+import { Joke } from '../shared/interface/joke.model';
 import { AlertService } from '../core/alert/alert.service';
 
 export interface JokeExtended extends Joke {
@@ -51,29 +51,19 @@ export class JokesComponent implements OnInit {
             this.jokesService.favoredJokes = this.jokesService.favoredJokes.filter(
                 (favoredJoke) => favoredJoke.id !== joke.id,
             );
-
-            joke.active = !joke.active;
-
-            this.jokesService.setFavoredJokesToStorage();
-
-            return;
-        }
-
-        if (!this.jokesService.favoredJokes.includes(joke)) {
+        } else {
             if (this.jokesService.favoredJokes.length >= this.MAX_JOKE_COUNT) {
                 this.router.navigate(['favorites']);
 
                 this.alertService.error(
                     'Favorite jokes reached maximum number of 10. Please remove some to add new ones!',
                 );
-
-                return;
             }
 
             this.jokesService.favoredJokes.push(joke);
-
-            this.jokesService.setFavoredJokesToStorage();
         }
+
+        this.jokesService.setFavoredJokesToStorage();
 
         joke.active = !joke.active;
 

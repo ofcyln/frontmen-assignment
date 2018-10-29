@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Joke } from '../../shared/interface/jokes-interface.model';
+import { Joke } from '../../shared/interface/joke.model';
 import { JokesService } from '../../shared/service/jokes.service';
 import { AlertService } from '../../core/alert/alert.service';
 

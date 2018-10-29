@@ -4,7 +4,7 @@
 
 export const environment = {
     production: false,
-    baseAPIUrl: '../assets/api',
+    baseAPIUrl: 'https://frontmen-chuck-norris-jokes.firebaseapp.com/',
     jokesAPIUrl: 'http://api.icndb.com/jokes/random',
 };
 

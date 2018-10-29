@@ -1,13 +1,13 @@
 :host {
     .login-area {
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
         background-size: cover;
-        height: 100%;
-        width: 100%;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
         overflow-y: auto;
         margin-left: 0;
+        position: fixed;
         .group {
             position: relative;
             margin-bottom: 45px;
@@ -121,22 +121,22 @@
     .login-section {
         box-shadow: 0 0 11px -4px #333;
         border-radius: 3px;
-        transform: translateY(calc(-50% - 30px));
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
         margin: 0 auto;
         top: 50%;
         padding: 60px;
         min-width: 320px;
         max-width: 420px;
-        min-height: max-content;
-        height: auto;
-        max-height: max-content;
+        height: 500px;
         box-sizing: border-box;
+        background-color: #fff;
     }
     .send-button:not(.disabled){
         &:before{
             content: '';
             position: absolute;
-            right: 7px;
+            right: 25px;
             top: 50%;
             margin-top: -11px;
             width: 20px;
