@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RefreshJokesComponent } from './refresh-jokes.component';
+import { RefreshJokesButtonComponent } from './refresh-jokes-button.component';
 
-describe('RefreshJokesComponent', () => {
-    let component: RefreshJokesComponent;
-    let fixture: ComponentFixture<RefreshJokesComponent>;
+describe('RefreshJokesButtonComponent', () => {
+    let component: RefreshJokesButtonComponent;
+    let fixture: ComponentFixture<RefreshJokesButtonComponent>;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [RefreshJokesComponent],
+            declarations: [RefreshJokesButtonComponent],
         }).compileComponents();
     }));
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(RefreshJokesComponent);
+        fixture = TestBed.createComponent(RefreshJokesButtonComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });

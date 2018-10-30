@@ -14,7 +14,7 @@ import { JokesRequestService } from './shared/service/jokes-request.service';
 import { FillSwitchComponent } from './favorites/fill-switch/fill-switch.component';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { LoadingBarHttpModule } from '@ngx-loading-bar/http';
-import { RefreshJokesComponent } from './jokes/refresh-jokes/refresh-jokes.component';
+import { RefreshJokesButtonComponent } from './jokes/refresh-jokes-button/refresh-jokes-button.component';
 import { JokesService } from './shared/service/jokes.service';
 import { JwtInterceptor } from './shared/service/interceptor/jwt.interceptor';
 import { MockBackendServerInterceptor } from './shared/service/interceptor/mock-backend-server.interceptor';
@@ -26,7 +26,7 @@ import { MockBackendServerInterceptor } from './shared/service/interceptor/mock-
         FavoritesComponent,
         FillSwitchComponent,
         NotFoundComponent,
-        RefreshJokesComponent,
+        RefreshJokesButtonComponent,
     ],
     imports: [
         BrowserModule,
