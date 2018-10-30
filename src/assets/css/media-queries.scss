@@ -1,15 +1,10 @@
 @media only screen and (max-width: 991px) {
-    .login-area {
-        overflow-y: initial !important;
-    }
     .login-section {
-        -webkit-transform: none !important;
-        -moz-transform: none !important;
-        -ms-transform: none !important;
-        -o-transform: none !important;
-        transform: none !important;
-        top: initial !important;
+        top: 50px !important;
+        left: 50%;
         max-width: 340px !important;
+        transform: translateX(-50%)!important;
+        margin: 0!important;
     }
     .quote-card, .section-heading {
         max-width: 90%;

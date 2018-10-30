@@ -55,6 +55,12 @@
       "css": "refresh",
       "code": 59396,
       "src": "elusive"
+    },
+    {
+      "uid": "c835a3a0692cca9dffde9a8a561da938",
+      "css": "logout",
+      "code": 59398,
+      "src": "elusive"
     }
   ]
 }

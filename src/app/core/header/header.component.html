@@ -28,6 +28,15 @@
                     aria-label="FAVORITES"
                     [ngClass]="jokesService.animateFavoritesRouteLink ? 'bounceIn' : ''">FAVORITES</a>
             </li>
+
+            <li
+                class="nav-item"
+                routerLinkActive="active">
+                <a
+                    class="nav-link cursor-pointer chuck-icon-logout"
+                    (click)="authService.logout()"
+                    title="Logout"></a>
+            </li>
         </ul>
     </div>
 </header>

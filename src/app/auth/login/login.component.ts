@@ -22,11 +22,11 @@ export class LoginComponent implements OnInit {
         private route: ActivatedRoute,
         private authenticationService: AuthService,
         private alertService: AlertService,
-    ) {}
+    ) {
+        this.authenticationService.removeToken();
+    }
 
     ngOnInit() {
-        this.authenticationService.logout();
-
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/jokes';
     }
 

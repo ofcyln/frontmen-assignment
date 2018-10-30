@@ -1,6 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterStateSnapshot } from '@angular/router';
 
 import { tap } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
@@ -11,7 +11,8 @@ import { LoginResponse } from '../shared/interface/user.model';
 export class AuthService implements OnInit {
     constructor(
         private http: HttpClient,
-        public router: Router,
+        private router: Router,
+        private route: ActivatedRoute,
         private storageService: StorageService,
     ) {}
 
@@ -29,8 +30,12 @@ export class AuthService implements OnInit {
             );
     }
 
-    logout() {
+    removeToken() {
         this.storageService.removeItem('token');
+    }
+
+    logout() {
+        this.router.navigate(['login']);
     }
 
     isAuthenticated(): boolean {
