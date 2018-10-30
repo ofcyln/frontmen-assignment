@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 
 import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { Joke, JokesResponse } from '../interface/joke.model';
 import { JokesRequestService } from './jokes-request.service';
-import { Observable } from 'rxjs';
 import { StorageService } from './storage.service';
 
 @Injectable()
@@ -38,5 +38,17 @@ export class JokesService {
 
     setFavoriteJokesToStorage() {
         this.storageService.setObject('favoriteJokes', [...this.favoriteJokes]);
+    }
+
+    filterUniqueJokes(joke: Joke): Joke[] {
+        return this.favoriteJokes.filter((favoriteJoke) => favoriteJoke.id !== joke.id);
+    }
+
+    animateFavoriteRouteLink(): void {
+        this.animateFavoritesRouteLink = true;
+
+        setTimeout(() => {
+            this.animateFavoritesRouteLink = false;
+        }, 500);
     }
 }

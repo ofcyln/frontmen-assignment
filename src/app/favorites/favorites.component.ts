@@ -18,9 +18,7 @@ export class FavoritesComponent implements OnInit {
     }
 
     removeFavoriteJoke(joke: Joke) {
-        this.jokesService.favoriteJokes = this.jokesService.favoriteJokes.filter(
-            (favoriteJoke) => favoriteJoke.id !== joke.id,
-        );
+        this.jokesService.favoriteJokes = this.jokesService.filterUniqueJokes(joke);
 
         this.jokesService.setFavoriteJokesToStorage();
     }

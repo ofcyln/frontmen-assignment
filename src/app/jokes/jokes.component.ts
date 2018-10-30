@@ -48,9 +48,7 @@ export class JokesComponent implements OnInit {
 
     addJokeToFavorites(joke: JokeExtended): void {
         if (this.jokesService.favoriteJokes.includes(joke)) {
-            this.jokesService.favoriteJokes = this.jokesService.favoriteJokes.filter(
-                (favoriteJoke) => favoriteJoke.id !== joke.id,
-            );
+            this.jokesService.favoriteJokes = this.jokesService.filterUniqueJokes(joke);
         } else {
             if (this.jokesService.favoriteJokes.length >= this.MAX_JOKE_COUNT) {
                 this.router.navigate(['favorites']);
@@ -67,14 +65,6 @@ export class JokesComponent implements OnInit {
 
         joke.active = !joke.active;
 
-        this.animateFavoriteRouteLink();
-    }
-
-    animateFavoriteRouteLink(): void {
-        this.jokesService.animateFavoritesRouteLink = true;
-
-        setTimeout(() => {
-            this.jokesService.animateFavoritesRouteLink = false;
-        }, 500);
+        this.jokesService.animateFavoriteRouteLink();
     }
 }
