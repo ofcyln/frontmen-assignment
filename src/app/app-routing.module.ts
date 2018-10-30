@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
 import { JokesComponent } from './jokes/jokes.component';
 import { FavoritesComponent } from './favorites/favorites.component';
-import { NotFoundComponent } from './not-found/not-found.component';
+import { NotFoundComponent } from './core/not-found/not-found.component';
 import { AuthGuardService } from './auth/auth-guard.service';
 
 const appRoutes: Routes = [
