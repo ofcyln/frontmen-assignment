@@ -47,12 +47,12 @@ export class JokesComponent implements OnInit {
     }
 
     addJokeToFavorites(joke: JokeExtended): void {
-        if (this.jokesService.favoredJokes.includes(joke)) {
-            this.jokesService.favoredJokes = this.jokesService.favoredJokes.filter(
-                (favoredJoke) => favoredJoke.id !== joke.id,
+        if (this.jokesService.favoriteJokes.includes(joke)) {
+            this.jokesService.favoriteJokes = this.jokesService.favoriteJokes.filter(
+                (favoriteJoke) => favoriteJoke.id !== joke.id,
             );
         } else {
-            if (this.jokesService.favoredJokes.length >= this.MAX_JOKE_COUNT) {
+            if (this.jokesService.favoriteJokes.length >= this.MAX_JOKE_COUNT) {
                 this.router.navigate(['favorites']);
 
                 this.alertService.error(
@@ -60,10 +60,10 @@ export class JokesComponent implements OnInit {
                 );
             }
 
-            this.jokesService.favoredJokes.push(joke);
+            this.jokesService.favoriteJokes.push(joke);
         }
 
-        this.jokesService.setFavoredJokesToStorage();
+        this.jokesService.setFavoriteJokesToStorage();
 
         joke.active = !joke.active;
 

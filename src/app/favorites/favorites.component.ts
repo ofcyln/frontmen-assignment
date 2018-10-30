@@ -13,15 +13,15 @@ export class FavoritesComponent implements OnInit {
     constructor(public jokesService: JokesService, public storageService: StorageService) {}
 
     ngOnInit() {
-        this.jokesService.favoredJokes =
-            <Joke[]>this.storageService.getObject('favoredJokes') || [];
+        this.jokesService.favoriteJokes =
+            <Joke[]>this.storageService.getObject('favoriteJokes') || [];
     }
 
-    removeFavoredJoke(joke: Joke) {
-        this.jokesService.favoredJokes = this.jokesService.favoredJokes.filter(
-            (favoredJoke) => favoredJoke.id !== joke.id,
+    removeFavoriteJoke(joke: Joke) {
+        this.jokesService.favoriteJokes = this.jokesService.favoriteJokes.filter(
+            (favoriteJoke) => favoriteJoke.id !== joke.id,
         );
 
-        this.jokesService.setFavoredJokesToStorage();
+        this.jokesService.setFavoriteJokesToStorage();
     }
 }

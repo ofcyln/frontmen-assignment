@@ -9,7 +9,7 @@ import { StorageService } from './storage.service';
 @Injectable()
 export class JokesService {
     public jokes: Joke[];
-    public favoredJokes: Joke[] = [];
+    public favoriteJokes: Joke[] = [];
 
     public animateFavoritesRouteLink: boolean;
 
@@ -36,7 +36,7 @@ export class JokesService {
         return textNode.replace(searchValue, replaceValue);
     }
 
-    setFavoredJokesToStorage() {
-        this.storageService.setObject('favoredJokes', [...this.favoredJokes]);
+    setFavoriteJokesToStorage() {
+        this.storageService.setObject('favoriteJokes', [...this.favoriteJokes]);
     }
 }

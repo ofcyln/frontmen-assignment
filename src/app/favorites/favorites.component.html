@@ -9,12 +9,12 @@
 <article class="d-flex flex-column-reverse">
     <blockquote
         class="quote-card"
-        *ngFor="let joke of jokesService.favoredJokes; let i = index;"
+        *ngFor="let joke of jokesService.favoriteJokes; let i = index;"
         tabindex="{{ i + 1 }}">
         <a
             class="favorite-button chuck-icon-heart"
             title="Remove from favorites"
-            (click)="removeFavoredJoke(joke)"></a>
+            (click)="removeFavoriteJoke(joke)"></a>
 
         <p id="{{ joke.id + '-' + i }}">
             {{ joke.joke }}

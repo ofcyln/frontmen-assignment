@@ -40,9 +40,9 @@ export class FillSwitchComponent implements OnInit {
                     };
                 })[this.FIRST_ITEM];
 
-                this.jokesService.favoredJokes.push(oneJoke);
+                this.jokesService.favoriteJokes.push(oneJoke);
 
-                this.jokesService.setFavoredJokesToStorage();
+                this.jokesService.setFavoriteJokesToStorage();
             },
             (error) => {
                 this.alertService.error(`Error: ${error}`);
@@ -56,9 +56,9 @@ export class FillSwitchComponent implements OnInit {
         if (this.jokesService.isFillSwitchActive) {
             this.subscription = interval(this.FIVE_SECONDS_TIMER).subscribe(
                 () => {
-                    if (this.jokesService.favoredJokes.length >= this.MAX_JOKE_COUNT) {
+                    if (this.jokesService.favoriteJokes.length >= this.MAX_JOKE_COUNT) {
                         this.alertService.error(
-                            'Favored jokes amount reached to the maximum ' +
+                            'Favorite jokes amount reached to the maximum ' +
                                 'allowed number of 10. Fill switch deactivated!',
                         );
 
@@ -75,7 +75,7 @@ export class FillSwitchComponent implements OnInit {
                 },
                 (error) => {
                     this.alertService.error(
-                        `There was an error while filling favored jokes: ${error}.`,
+                        `There was an error while filling favorite jokes: ${error}.`,
                     );
                 },
             );
