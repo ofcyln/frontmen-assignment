@@ -56,9 +56,9 @@ export class JokesComponent implements OnInit {
                 this.alertService.error(
                     'Favorite jokes reached maximum number of 10. Please remove some to add new ones!',
                 );
+            } else {
+                this.jokesService.favoriteJokes.push(joke);
             }
-
-            this.jokesService.favoriteJokes.push(joke);
         }
 
         this.jokesService.setFavoriteJokesToStorage();

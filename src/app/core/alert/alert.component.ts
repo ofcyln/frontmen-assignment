@@ -23,7 +23,7 @@ export class AlertComponent implements OnInit {
     }
 
     removeAlert(alert: Alert) {
-        this.alerts = this.alerts.filter((x) => x !== alert);
+        this.alerts = this.alerts.filter((item) => item !== alert);
     }
 
     cssClass(alert: Alert) {
