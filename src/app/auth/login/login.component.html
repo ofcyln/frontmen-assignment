@@ -69,7 +69,7 @@
                 <div
                     *ngIf="loginForm.get('password').hasError('pattern')
                     && loginForm.get('password').dirty"
-                    class="has-error help-block">Passwords can not contain the letters <b class="text-dark">‘i‘</b>, <b class="text-dark">‘O‘</b>, or <b class="text-dark">‘l‘</b>, as these letters can be mistaken for other characters and are therefore confusing!</div>
+                    class="has-error help-block">Passwords can not contain the letters <b class="text-dark">‘i’</b>, <b class="text-dark">‘O’</b>, or <b class="text-dark">‘l’</b>, as these letters can be mistaken for other characters and are therefore confusing!</div>
 
                 <div
                     *ngIf="loginForm.get('password').hasError('usedStraightLetters')
@@ -79,7 +79,7 @@
                 <div
                     *ngIf="loginForm.get('password').hasError('usedTwoNonOverlappingPairOfLetters')
                     && loginForm.get('password').dirty"
-                    class="has-error help-block">Passwords must contain at least two non-overlapping pairs of letters, like <b class="text-dark">aa</b>, <b class="text-dark">bb</b>, or <b class="text-dark">cc</b>.</div>
+                    class="has-error help-block">Passwords must contain at least two non-overlapping pairs of letters, like <b class="text-dark">‘aa’</b>, <b class="text-dark">‘bb’</b>, or <b class="text-dark">‘cc’</b>.</div>
 
                 <label>Password</label>
             </div>
