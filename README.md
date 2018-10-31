@@ -7,7 +7,7 @@ Frontmen Assignment - Chuck Norris jokes app assignment solution authored by Osm
 ### Using the project on live environment
 The final app hosted on `Google Firebase` server with the `live environment`.
  
-Live demo:  [https://frontmen-chuck-norris-jokes.firebaseapp.com/](https://frontmen-chuck-norris-jokes.firebaseapp.com/){:target="_blank"}
+Live demo:  [https://frontmen-chuck-norris-jokes.firebaseapp.com/](https://frontmen-chuck-norris-jokes.firebaseapp.com/ "(target|_blank)")
 
 To see website in action please `activate unsafe scripts` from the `address bar` -it gives warning because the API serves from HTTP protocol
 
@@ -18,7 +18,7 @@ Login control made with mock backend server interceptor. Interceptor simulates b
 
 ### Using the project with Stackblitz
 
-Simply go to this URL: [https://stackblitz.com/github/ofcyln/frontmen-assignment](https://stackblitz.com/github/ofcyln/frontmen-assignment){:target="_blank"}
+Simply go to this URL: [https://stackblitz.com/github/ofcyln/frontmen-assignment](https://stackblitz.com/github/ofcyln/frontmen-assignment "(target|_blank)")
 
 Stackblitz can only show you the visible UI of the project without cloning it to your local environment. Please not that, for security reasons `Stackblitz` doesn't show images, fonts or font icons that used on the project.
 
