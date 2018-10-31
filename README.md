@@ -1,4 +1,4 @@
-# Frontmen Assignment - IN PROGRESS
+# Frontmen Assignment
 
 Frontmen Assignment - Chuck Norris jokes app assignment solution authored by Osman Fikret Ceylan.
 
@@ -10,6 +10,11 @@ The final app hosted on `Google Firebase` server with the `live environment`.
 Live demo:  https://frontmen-chuck-norris-jokes.firebaseapp.com/
 
 To see website in action please `activate unsafe scripts` from the `address bar` -it gives warning because the API serves from HTTP protocol
+
+* Test username is `admin` or `niek.heezemans@frontmen.nl`
+* Test password is `xyzaabb`
+
+Login control made with mock backend server interceptor. Interceptor simulates backend server response when POST request made through `login` url. It returns with a login response which includes `token`.
 
 ### Using the project with Stackblitz
 
@@ -57,3 +62,4 @@ Run `yarn build:prod` or `npm run build:prod` to build the project.
 The build artifacts will be stored in the `dist/` directory.
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
