@@ -1,7 +1,7 @@
 <form
     class="row login-area"
-    #f="ngForm"
-    (ngSubmit)="f.form.valid && onSubmit()"
+    [formGroup]='loginForm'
+    (ngSubmit)="onSubmit()"
     novalidate>
 
     <div class="login-section col-12">
@@ -18,46 +18,68 @@
 
         <div class="col-12 p-0">
             <div
-                class="group"
-                [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+                class="group">
                 <input
                     class="email-area"
-                    name="username"
+                    formControlName="username"
                     type="text"
-                    [(ngModel)]="model.username"
-                    #username="ngModel"
-                    required
                     tabindex="1"/>
 
-                <div
-                    *ngIf="f.submitted && !username.valid"
-                    class="help-block">Username is required!
-                </div>
-
                 <span class="bar"></span>
+
+                <div
+                    *ngIf="!loginForm.get('username').valid && loginForm.get('username').touched"
+                    class="has-error help-block">Username field can not be empty!
+                </div>
 
                 <label>Username (E-Mail)</label>
             </div>
 
             <div
-                class="group"
-                [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+                class="group">
                 <input
                     class="password-area"
-                    name="password"
+                    formControlName="password"
                     type="password"
-                    [(ngModel)]="model.password"
-                    #password="ngModel"
-                    required
-                    [maxlength]="32"
                     tabindex="2"/>
 
+                <span class="bar"></span>
+
                 <div
-                    *ngIf="f.submitted && !password.valid"
-                    class="help-block">Password is required!
+                    *ngIf="(loginForm.get('password').dirty
+                    && !loginForm.get('password').valid
+                    && loginForm.value.password.length < 1) ||
+                    (loginForm.get('password').touched
+                    && !loginForm.get('password').valid
+                    && loginForm.value.password.length < 1)"
+                    class="has-error help-block">Password field can not be empty!
                 </div>
 
-                <span class="bar"></span>
+                <div
+                    *ngIf="loginForm.value.password.length < 7
+                    && loginForm.get('password').dirty
+                    && loginForm.value.password.length >= 1"
+                    class="has-error help-block">Minimum password length is 7 characters!</div>
+
+                <div
+                    *ngIf="loginForm.value.password.length > 31
+                    && loginForm.get('password').dirty"
+                    class="has-error help-block">Maximum password length is 32 characters!</div>
+
+                <div
+                    *ngIf="loginForm.get('password').hasError('pattern')
+                    && loginForm.get('password').dirty"
+                    class="has-error help-block">Passwords can not contain the letters <b class="text-dark">‘i‘</b>, <b class="text-dark">‘O‘</b>, or <b class="text-dark">‘l‘</b>, as these letters can be mistaken for other characters and are therefore confusing!</div>
+
+                <div
+                    *ngIf="loginForm.get('password').hasError('usedStraightLetters')
+                    && loginForm.get('password').dirty"
+                    class="has-error help-block">Passwords must include one increasing straight of at least three letters, like <b class="text-dark">‘abc’</b>, <b class="text-dark">‘cde’</b>, <b class="text-dark">‘fgh’</b>, and so on, up to <b class="text-dark">‘xyz’</b>!</div>
+
+                <div
+                    *ngIf="loginForm.get('password').hasError('usedTwoNonOverlappingPairOfLetters')
+                    && loginForm.get('password').dirty"
+                    class="has-error help-block">Passwords must contain at least two non-overlapping pairs of letters, like <b class="text-dark">aa</b>, <b class="text-dark">bb</b>, or <b class="text-dark">cc</b>.</div>
 
                 <label>Password</label>
             </div>
@@ -69,7 +91,7 @@
                     class="btn w-100 btn-success pt-1 pb-1 login-button send-button"
                     [ngClass]="{ 'sending': animationActive }"
                     type="submit"
-                    [disabled]="loading"
+                    [disabled]="loading || loginForm.invalid"
                     tabindex="3">Sign In</button>
             </div>
         </div>

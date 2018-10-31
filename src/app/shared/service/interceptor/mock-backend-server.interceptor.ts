@@ -24,7 +24,7 @@ export class MockBackendServerInterceptor implements HttpInterceptor {
                             const testUser = {
                                 username: 'admin',
                                 email: 'niek.heezemans@frontmen.nl',
-                                password: 'defaa22',
+                                password: 'xyzaabb',
                             };
 
                             request = request.clone();

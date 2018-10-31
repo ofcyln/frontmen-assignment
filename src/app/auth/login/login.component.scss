@@ -1,14 +1,24 @@
 :host {
+    .login-section {
+        margin: 0 auto;
+        padding: 60px;
+        min-width: 320px;
+        max-width: 400px;
+        height: auto;
+        box-sizing: border-box;
+        background-color: #fff;
+    }
     .login-area {
         background-size: cover;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
+        top: 50%;
+        left: 50%;
         overflow-y: auto;
         margin-left: 0;
         margin-right: 0;
-        position: fixed;
+        position: absolute;
+        transform: translateY(-50%) translateX(-50%);
+        box-shadow: 0 0 11px -4px #333;
+        border-radius: 3px;
         .group {
             position: relative;
             margin-bottom: 45px;
@@ -112,26 +122,16 @@
             }
         }
         .has-error {
-            .help-block {
-                position: absolute;
-                color: #bf4031;
-                font-size: 14px;
+            position: relative;
+            color: #bf4031;
+            font-size: 14px;
+            padding-top: 2px;
+            margin-top: 2px;
+            border-top: 1px dashed #bbbbbb;
+            &:nth-of-type(1) {
+                border-top: 0;
             }
         }
-    }
-    .login-section {
-        box-shadow: 0 0 11px -4px #333;
-        border-radius: 3px;
-        -webkit-transform: translateY(-50%);
-        transform: translateY(-50%);
-        margin: 0 auto;
-        top: 50%;
-        padding: 60px;
-        min-width: 320px;
-        max-width: 400px;
-        height: 500px;
-        box-sizing: border-box;
-        background-color: #fff;
     }
     .send-button:not(.disabled){
         &:before{
@@ -168,7 +168,6 @@
             -webkit-animation-timing-function: linear;
             animation-timing-function: linear;
         }
-
         &.sending{
             pointer-events: none;
             cursor: not-allowed;
@@ -184,6 +183,9 @@
                 filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
                 opacity: 1;
             }
+        }
+        &:disabled {
+            cursor: not-allowed;
         }
     }
     @keyframes rotate {

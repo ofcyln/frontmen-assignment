@@ -9,10 +9,12 @@
 
     <article
         class="row app-content"
-        [ngClass]="authService.isAuthenticated() ? 'regular-height' : 'full-height'">
-        <app-alert [ngClass]="authService.isAuthenticated() ? 'regular-position' : 'top-position'"></app-alert>
+        [ngClass]="authService.isAuthenticated() ? 'initial-height' : 'full-height'">
+        <app-alert [ngClass]="authService.isAuthenticated() ? 'initial-position' : 'top-position'"></app-alert>
 
-        <main class="col no-padding">
+        <main
+            class="col no-padding"
+            [ngClass]="authService.isAuthenticated() ? 'initial-margin' : 'mt-0'">
             <router-outlet></router-outlet>
         </main>
     </article>
