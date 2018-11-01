@@ -58,12 +58,17 @@ export class LoginComponent implements OnInit {
     checkIncreasingLetters(control: AbstractControl): StringBooleanPair | null {
         let increasingLetters = '';
 
-        for (let i = 0; i < this.removeNumbersAndSpecialCharacters(control.value).length; ++i) {
+        for (
+            let itemIndex = 0;
+            itemIndex < this.removeNumbersAndSpecialCharacters(control.value).length - 1;
+            itemIndex++
+        ) {
             if (
-                control.value.charCodeAt(i) === control.value.charCodeAt(i + 1) - 1 &&
-                control.value.charCodeAt(i) === control.value.charCodeAt(i + 2) - 2
+                control.value.charCodeAt(itemIndex) ===
+                    control.value.charCodeAt(itemIndex + 1) - 1 &&
+                control.value.charCodeAt(itemIndex) === control.value.charCodeAt(itemIndex + 2) - 2
             ) {
-                increasingLetters = control.value.substr(i, i + 3);
+                increasingLetters = control.value.substr(itemIndex, itemIndex + 3);
             }
         }
 
@@ -81,9 +86,9 @@ export class LoginComponent implements OnInit {
         if (control.value.length > 0) {
             sortedValue = Array.from(this.removeNumbersAndSpecialCharacters(control.value)).sort();
 
-            for (let i = 0; i < sortedValue.length - 1; i++) {
-                if (sortedValue[i + 1] === sortedValue[i]) {
-                    matchingPairs.push(sortedValue[i]);
+            for (let itemIndex = 0; itemIndex < sortedValue.length - 1; itemIndex++) {
+                if (sortedValue[itemIndex + 1] === sortedValue[itemIndex]) {
+                    matchingPairs.push(sortedValue[itemIndex]);
                 }
             }
         }

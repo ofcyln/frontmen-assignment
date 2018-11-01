@@ -10,8 +10,6 @@ export interface Alert {
 export enum AlertType {
     Success,
     Error,
-    Info,
-    Warning,
 }
 
 @Injectable()
@@ -42,14 +40,6 @@ export class AlertService {
 
     error(message: string, keepAfterRouteChange = false) {
         this.alert(AlertType.Error, message, keepAfterRouteChange);
-    }
-
-    info(message: string, keepAfterRouteChange = false) {
-        this.alert(AlertType.Info, message, keepAfterRouteChange);
-    }
-
-    warn(message: string, keepAfterRouteChange = false) {
-        this.alert(AlertType.Warning, message, keepAfterRouteChange);
     }
 
     alert(type: AlertType, message: string, keepAfterRouteChange = false) {
