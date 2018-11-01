@@ -40,9 +40,14 @@ export class FillSwitchComponent implements OnInit {
                     };
                 })[this.FIRST_ITEM];
 
-                this.jokesService.favoriteJokes.push(oneJoke);
+                if (this.jokesService.filterSameJokes(oneJoke).length > 0) {
+                    this.alertService.error(`Same joke has been detected. 
+                    To prevent duplication, it didn't stored to the favorite jokes!`);
+                } else {
+                    this.jokesService.favoriteJokes.push(oneJoke);
 
-                this.jokesService.setFavoriteJokesToStorage();
+                    this.jokesService.setFavoriteJokesToStorage();
+                }
             },
             (error) => {
                 this.alertService.error(`Error: ${error}`);

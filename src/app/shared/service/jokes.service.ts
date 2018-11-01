@@ -44,6 +44,10 @@ export class JokesService {
         return this.favoriteJokes.filter((favoriteJoke) => favoriteJoke.id !== joke.id);
     }
 
+    filterSameJokes(joke: Joke): Joke[] {
+        return this.favoriteJokes.filter((favoriteJoke) => favoriteJoke.id === joke.id);
+    }
+
     animateFavoriteRouteLink(): void {
         this.animateFavoritesRouteLink = true;
 
