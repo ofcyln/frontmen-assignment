@@ -109,7 +109,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 * `tabindex` values added for form elements in a numeric order to complete the form just with the use of keyboard for accessibility.
 
-* In case of navigating to a page which doesn't exist in the app, a `wildcard route (404)` is integrated to the project. It redirects users to the `Jokes` page which is the homepage of the project. 
+* In case of navigating to a page which doesn't exist in the app, a `wildcard route (404)` is integrated to the project. It redirects users to the `Not Found` page. 
 
 * If a user doesn't authenticate, page routing redirects users to the `Login` page to be authenticated. After authorization, with the help of the routerSnapshot queryParams, the user can continue his browsing experience.
 
