@@ -111,7 +111,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 * In case of navigating to a page which doesn't exist in the app, a `wildcard route (404)` is integrated to the project. It redirects users to the `Not Found` page. 
 
-* If a user doesn't authenticate, page routing redirects users to the `Login` page to be authenticated. After authorization, with the help of the routerSnapshot queryParams, the user can continue his browsing experience.
+* If a user doesn't authenticate, page routing redirects users to the `Login` page to be authenticated. After authorization, with the help of the routerSnapshot queryParams, the user can continue to browsing.
 
 * Form data is sent asynchronously by `HTTP POST request` with `RxJS` observables. The `HTTP POST request` posts the form data to URL `./login`. I also created an interface for a hypothetical response from the server for this request. A refactor must be done when a backend is ready to make it work in a live environment.
 
