@@ -25,14 +25,14 @@
                     type="text"
                     tabindex="1"/>
 
+                <label>Username (E-Mail)</label>
+
                 <span class="bar"></span>
 
                 <div
                     *ngIf="!loginForm.get('username').valid && loginForm.get('username').touched"
                     class="has-error help-block">Username field can not be empty!
                 </div>
-
-                <label>Username (E-Mail)</label>
             </div>
 
             <div
@@ -42,6 +42,8 @@
                     formControlName="password"
                     type="password"
                     tabindex="2"/>
+
+                <label>Password</label>
 
                 <span class="bar"></span>
 
@@ -80,8 +82,6 @@
                     *ngIf="loginForm.get('password').hasError('usedTwoNonOverlappingPairOfLetters')
                     && loginForm.get('password').dirty"
                     class="has-error help-block">Passwords must contain at least two non-overlapping pairs of letters, like <b class="text-dark">‘aa’</b>, <b class="text-dark">‘bb’</b>, or <b class="text-dark">‘cc’</b>.</div>
-
-                <label>Password</label>
             </div>
         </div>
 

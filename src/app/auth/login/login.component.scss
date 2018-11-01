@@ -33,6 +33,15 @@
             border: none;
             border-bottom: 1px solid #dedede;
             color: #616161;
+            &.ng-valid-required, &.ng-valid.ng-touched, &.ng-valid.ng-dirty, &.ng-valid, &.ng-dirty {
+                ~ {
+                    label {
+                        top: -10px;
+                        font-size: 12px;
+                        color: #28a745;
+                    }
+                }
+            }
             &:focus {
                 outline: none;
                 ~ {
@@ -101,15 +110,6 @@
                 transition: 0.1s ease all;
                 -moz-transition: 0.1s ease all;
                 -webkit-transition: 0.1s ease all;
-            }
-        }
-        input.ng-valid-required, input.ng-valid.ng-touched, input.ng-valid.ng-dirty, input.ng-valid {
-            ~ {
-                label {
-                    top: -10px;
-                    font-size: 12px;
-                    color: #28a745;
-                }
             }
         }
         .has-error {
