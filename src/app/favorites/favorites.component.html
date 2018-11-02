@@ -16,9 +16,7 @@
             title="Remove from favorites"
             (click)="removeFavoriteJoke(joke)"></a>
 
-        <p id="{{ joke.id + '-' + i }}">
-            {{ joke.joke }}
-        </p>
+        <p id="{{ joke.id + '-' + i }}" [innerHTML]="joke.joke"></p>
     </blockquote>
 </article>
 

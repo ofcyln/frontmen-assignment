@@ -16,8 +16,6 @@ export class FillSwitchComponent implements OnInit {
     private readonly JOKE_COUNT = 1;
     private readonly MAX_JOKE_COUNT = 10;
     private readonly FIVE_SECONDS_TIMER = 5000;
-    private readonly QUOT_TEXT = /&quot;/g;
-    private readonly QUOTATION_MARK = "'";
 
     constructor(public jokesService: JokesService, private alertService: AlertService) {}
 
@@ -26,17 +24,7 @@ export class FillSwitchComponent implements OnInit {
     getJoke() {
         this.jokesService.getJokes(this.JOKE_COUNT).subscribe(
             (jokes: Joke[]) => {
-                const oneJoke = jokes.map((joke: Joke) => {
-                    return {
-                        id: joke.id,
-                        joke: this.jokesService.replaceTextNode(
-                            joke.joke,
-                            this.QUOT_TEXT,
-                            this.QUOTATION_MARK,
-                        ),
-                        category: joke.category,
-                    };
-                })[this.FIRST_ITEM];
+                const oneJoke = jokes[this.FIRST_ITEM];
 
                 if (this.jokesService.filterSameJokes(oneJoke).length > 0) {
                     this.alertService.error(`Same joke has been detected. 

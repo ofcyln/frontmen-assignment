@@ -16,8 +16,6 @@
         [ngClass]="{ 'selected' : joke.active }"
         (click)="addJokeToFavorites(joke)"></a>
 
-    <p id="{{ joke.id + '-' + i }}">
-        {{ joke.joke }}
-    </p>
+    <p id="{{ joke.id + '-' + i }}" [innerHTML]="joke.joke"></p>
 </blockquote>
 

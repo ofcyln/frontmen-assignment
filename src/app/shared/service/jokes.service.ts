@@ -30,14 +30,6 @@ export class JokesService {
         );
     }
 
-    public replaceTextNode(
-        textNode: string,
-        searchValue: string | RegExp,
-        replaceValue: string,
-    ): string {
-        return textNode.replace(searchValue, replaceValue);
-    }
-
     setFavoriteJokesToStorage() {
         this.storageService.setObject('favoriteJokes', [...this.favoriteJokes]);
     }

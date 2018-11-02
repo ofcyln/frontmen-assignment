@@ -16,8 +16,6 @@ export interface JokeExtended extends Joke {
 })
 export class JokesComponent implements OnInit {
     private readonly MAX_JOKE_COUNT: number = 10;
-    private readonly QUOT_TEXT = /&quot;/g;
-    private readonly QUOTATION_MARK = "'";
 
     constructor(
         public jokesService: JokesService,
@@ -28,17 +26,7 @@ export class JokesComponent implements OnInit {
     ngOnInit() {
         this.jokesService.getJokes(this.MAX_JOKE_COUNT).subscribe(
             (jokes: Joke[]) => {
-                this.jokesService.jokes = jokes.map((joke: Joke) => {
-                    return {
-                        id: joke.id,
-                        joke: this.jokesService.replaceTextNode(
-                            joke.joke,
-                            this.QUOT_TEXT,
-                            this.QUOTATION_MARK,
-                        ),
-                        category: joke.category,
-                    };
-                });
+                this.jokesService.jokes = jokes;
             },
             (error) => {
                 this.alertService.error(`Error: ${error}`);
