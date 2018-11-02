@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { Joke, JokesResponse } from '../interface/joke.model';
 import { JokesRequestService } from './jokes-request.service';
 import { StorageService } from './storage.service';
@@ -10,6 +10,8 @@ import { StorageService } from './storage.service';
 export class JokesService {
     public jokes: Joke[];
     public favoriteJokes: Joke[] = [];
+
+    public jokeSubscription: Subscription;
 
     public animateFavoritesRouteLink: boolean;
 

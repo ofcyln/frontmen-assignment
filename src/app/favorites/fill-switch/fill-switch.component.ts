@@ -12,8 +12,6 @@ import { interval, Subscription } from 'rxjs';
     encapsulation: ViewEncapsulation.None,
 })
 export class FillSwitchComponent implements OnInit {
-    private subscription: Subscription;
-
     private readonly FIRST_ITEM = 0;
     private readonly JOKE_COUNT = 1;
     private readonly MAX_JOKE_COUNT = 10;
@@ -59,7 +57,7 @@ export class FillSwitchComponent implements OnInit {
         this.jokesService.isFillSwitchActive = !this.jokesService.isFillSwitchActive;
 
         if (this.jokesService.isFillSwitchActive) {
-            this.subscription = interval(this.FIVE_SECONDS_TIMER).subscribe(
+            this.jokesService.jokeSubscription = interval(this.FIVE_SECONDS_TIMER).subscribe(
                 () => {
                     if (this.jokesService.favoriteJokes.length >= this.MAX_JOKE_COUNT) {
                         this.alertService.error(
@@ -69,11 +67,11 @@ export class FillSwitchComponent implements OnInit {
 
                         this.jokesService.isFillSwitchActive = false;
 
-                        this.subscription.unsubscribe();
+                        this.jokesService.jokeSubscription.unsubscribe();
                     } else if (!this.jokesService.isFillSwitchActive) {
                         this.jokesService.isFillSwitchActive = false;
 
-                        this.subscription.unsubscribe();
+                        this.jokesService.jokeSubscription.unsubscribe();
                     } else {
                         this.getJoke();
                     }
@@ -84,6 +82,8 @@ export class FillSwitchComponent implements OnInit {
                     );
                 },
             );
+        } else if (this.jokesService.jokeSubscription || !this.jokesService.isFillSwitchActive) {
+            this.jokesService.jokeSubscription.unsubscribe();
         }
     }
 }
