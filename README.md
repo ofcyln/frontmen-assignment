@@ -105,7 +105,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
     * Passwords may not contain the letters ‘i‘, ‘O‘, or ‘l‘, as these letters can be mistaken for other characters and are therefore confusing.
     * Passwords must contain at least two non-overlapping pairs of letters, like ‘aa‘, ‘bb‘, or ‘cc‘.
     * Passwords cannot be longer than 32 characters.
-    * Additionally, passwords cannot be longer less than 7 characters.
+    * Additionally, passwords cannot be less than 7 characters.
 
 * `tabindex` values added for form elements in a numeric order to complete the form just with the use of keyboard for accessibility.
 
@@ -121,7 +121,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 * Used `localStorage` to store user's favorite jokes with a key:value pair namely `favoriteJokes` and an array of favorites joke objects. Also, localStorage used to store `token`.
 
-* Whenever a user enters to the `Jokes` page, an asynchronous `HTTP GET request` runs for `http://api.icndb.com/jokes/random/AMOUNT` API. I added a `refresh jokes button` for showing to the user a new set of jokes - ten at a time. The joke response from API was including `&quot;` text nodes instead of `'` sign. When I get jokes from API, I passed the response to map method for replacing `&quot;` text node to `'`.
+* Whenever a user enters to the `Jokes` page, an asynchronous `HTTP GET request` runs for `http://api.icndb.com/jokes/random/AMOUNT` API. I added a `refresh jokes button` for showing to the user a new set of jokes - ten at a time. The joke response from API was including `&quot;` text nodes instead of `'` sign. When I get jokes from API, I passed the response to map method for replacing `&quot;` text node to `'`. Then refactored the code by adding `[innerHTML]` in the template which decodes HTML entity to the string.
 
 * There is an option to add/remove joke to the `Favorites` page. Used an empty and a full heart font-icon button to handle this interaction. To handle the state of the heart icons, I extended JokeResponse interface with `active: boolean` property. With this state, I integrated a custom made CSS3 tooltip to show a user the state of the joke -add/remove. 
 
